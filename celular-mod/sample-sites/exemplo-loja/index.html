@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loja do Exemplo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><img src="img/logo.svg" alt="logo" width="40" height="40"><h1 id="titulo">Loja do Exemplo</h1></header>
+  <nav>
+    <a id="link-sobre" href="sobre.html">Sobre</a>
+    <a id="link-noticias" href="celular://exemplo-noticias/">Notícias</a>
+  </nav>
+  <main>
+    <p>Site de demonstração em HTML + CSS + JavaScript rodando dentro do Minecraft.</p>
+    <section>
+      <h2>Contador (JavaScript)</h2>
+      <button id="btn">Clique aqui</button> <span id="contador">0</span>
+    </section>
+    <section>
+      <h2>Produtos (fetch de data.json)</h2>
+      <ul id="produtos"><li>carregando…</li></ul>
+    </section>
+    <section>
+      <h2>Formulário</h2>
+      <form id="form" action="resultado.html" method="get">
+        <input id="nome" name="nome" placeholder="Seu nome" autocomplete="off">
+        <button id="enviar" type="submit">Enviar</button>
+      </form>
+    </section>
+    <section>
+      <h2>Segurança</h2>
+      <button id="externo">Tentar acessar a internet</button> <span id="status-externo"></span>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

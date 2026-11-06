@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'net.neoforged.moddev' version '2.0.78'
+}
+
+version = mod_version
+group = mod_group_id
+
+base {
+    archivesName = mod_id
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = neo_version
+
+    runs {
+        client {
+            client()
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+        }
+        server {
+            server()
+            programArgument '--nogui'
+            systemProperty 'neoforge.enabledGameTestNamespaces', mod_id
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    // O navegador (Chromium) é o mod MCEF, acessado por reflexão em
+    // com.celularmod.client.browser.McefBridge — NÃO há dependência de compilação.
+    // Para testar o navegador no ambiente de desenvolvimento, coloque o .jar do MCEF em run/mods/.
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+// Testes do núcleo (Java puro): ./gradlew coreTest
+tasks.register('coreTest', Exec) {
+    group = 'verification'
+    description = 'Compila e executa os testes do núcleo (sem Minecraft).'
+    commandLine 'bash', 'tools/run-core-tests.sh'
+}

@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "MIT"
+
+[[mods]]
+modId = "celular"
+version = "1.0.0"
+displayName = "Celular"
+description = '''
+Um smartphone 2D para o Minecraft: WhatsApp e Threads entre jogadores, informações do servidor,
+atalho para o Discord e um navegador Chromium para sites HTML aprovados pelos administradores.
+'''
+
+[[dependencies.celular]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.celular]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.1,1.22)"
+ordering = "NONE"
+side = "BOTH"
